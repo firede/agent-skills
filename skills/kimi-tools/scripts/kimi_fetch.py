@@ -26,8 +26,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--api-key",
-        default=os.environ.get("KIMI_CODE_API_KEY"),
-        help="Kimi API key. Defaults to env KIMI_CODE_API_KEY.",
+        default=os.environ.get("KIMI_API_KEY"),
+        help="Kimi API key. Defaults to env KIMI_API_KEY.",
     )
     parser.add_argument(
         "--tool-call-id",
@@ -46,7 +46,7 @@ def main() -> None:
     args = parse_args()
 
     if not args.api_key:
-        fail("Missing API key. Set KIMI_CODE_API_KEY or pass --api-key.")
+        fail("Missing API key. Set KIMI_API_KEY or pass --api-key.")
 
     if args.timeout_seconds <= 0:
         fail("--timeout-seconds must be > 0.")
